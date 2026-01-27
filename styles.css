@@ -10,13 +10,19 @@
    ============================================ */
 :root {
   /* Color Palette */
-  --color-primary: #1a2b49;        /* Navy Blue - Primary brand color */
-  --color-primary-light: #2a3f5f;  /* Lighter navy for hover states */
-  --color-primary-dark: #0f1a2e;   /* Darker navy for emphasis */
-  --color-accent: #c9a961;         /* Gold - Accent color */
-  --color-accent-hover: #b39550;   /* Darker gold for hover */
+  --color-primary: #1a2b49;
+  /* Navy Blue - Primary brand color */
+  --color-primary-light: #2a3f5f;
+  /* Lighter navy for hover states */
+  --color-primary-dark: #0f1a2e;
+  /* Darker navy for emphasis */
+  --color-accent: #c9a961;
+  /* Gold - Accent color */
+  --color-accent-hover: #b39550;
+  /* Darker gold for hover */
   --color-white: #ffffff;
-  --color-off-white: #f5f7fa;      /* Light grey background */
+  --color-off-white: #f5f7fa;
+  /* Light grey background */
   --color-grey-100: #f8f9fa;
   --color-grey-200: #e9ecef;
   --color-grey-300: #dee2e6;
@@ -30,18 +36,26 @@
   --color-text-secondary: #6c757d;
   --color-success: #28a745;
   --color-error: #dc3545;
-  
+
   /* Typography */
   --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-base: 16px;
-  --font-size-sm: 0.875rem;   /* 14px */
-  --font-size-md: 1rem;        /* 16px */
-  --font-size-lg: 1.125rem;    /* 18px */
-  --font-size-xl: 1.25rem;     /* 20px */
-  --font-size-2xl: 1.5rem;     /* 24px */
-  --font-size-3xl: 2rem;       /* 32px */
-  --font-size-4xl: 2.5rem;     /* 40px */
-  --font-size-5xl: 3rem;       /* 48px */
+  --font-size-sm: 0.875rem;
+  /* 14px */
+  --font-size-md: 1rem;
+  /* 16px */
+  --font-size-lg: 1.125rem;
+  /* 18px */
+  --font-size-xl: 1.25rem;
+  /* 20px */
+  --font-size-2xl: 1.5rem;
+  /* 24px */
+  --font-size-3xl: 2rem;
+  /* 32px */
+  --font-size-4xl: 2.5rem;
+  /* 40px */
+  --font-size-5xl: 3rem;
+  /* 48px */
   --font-weight-light: 300;
   --font-weight-normal: 400;
   --font-weight-medium: 500;
@@ -50,16 +64,23 @@
   --line-height-tight: 1.2;
   --line-height-normal: 1.5;
   --line-height-relaxed: 1.75;
-  
+
   /* Spacing */
-  --spacing-xs: 0.5rem;    /* 8px */
-  --spacing-sm: 1rem;      /* 16px */
-  --spacing-md: 1.5rem;    /* 24px */
-  --spacing-lg: 2rem;      /* 32px */
-  --spacing-xl: 3rem;      /* 48px */
-  --spacing-2xl: 4rem;     /* 64px */
-  --spacing-3xl: 6rem;     /* 96px */
-  
+  --spacing-xs: 0.5rem;
+  /* 8px */
+  --spacing-sm: 1rem;
+  /* 16px */
+  --spacing-md: 1.5rem;
+  /* 24px */
+  --spacing-lg: 2rem;
+  /* 32px */
+  --spacing-xl: 3rem;
+  /* 48px */
+  --spacing-2xl: 4rem;
+  /* 64px */
+  --spacing-3xl: 6rem;
+  /* 96px */
+
   /* Layout */
   --container-max-width: 1200px;
   --container-padding: 2rem;
@@ -67,18 +88,18 @@
   --border-radius-md: 8px;
   --border-radius-lg: 12px;
   --border-radius-xl: 16px;
-  
+
   /* Shadows */
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
   --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
-  
+
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
   --transition-base: 250ms ease-in-out;
   --transition-slow: 350ms ease-in-out;
-  
+
   /* Z-index layers */
   --z-base: 1;
   --z-dropdown: 100;
@@ -92,7 +113,9 @@
 /* ============================================
    CSS RESET & BASE STYLES
    ============================================ */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -116,19 +139,41 @@ body {
 }
 
 /* Typography */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
   margin-bottom: var(--spacing-md);
   color: var(--color-primary);
 }
 
-h1 { font-size: var(--font-size-5xl); }
-h2 { font-size: var(--font-size-4xl); }
-h3 { font-size: var(--font-size-3xl); }
-h4 { font-size: var(--font-size-2xl); }
-h5 { font-size: var(--font-size-xl); }
-h6 { font-size: var(--font-size-lg); }
+h1 {
+  font-size: var(--font-size-5xl);
+}
+
+h2 {
+  font-size: var(--font-size-4xl);
+}
+
+h3 {
+  font-size: var(--font-size-3xl);
+}
+
+h4 {
+  font-size: var(--font-size-2xl);
+}
+
+h5 {
+  font-size: var(--font-size-xl);
+}
+
+h6 {
+  font-size: var(--font-size-lg);
+}
 
 p {
   margin-bottom: var(--spacing-sm);
@@ -152,7 +197,8 @@ img {
   display: block;
 }
 
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -195,9 +241,17 @@ section {
   gap: var(--spacing-lg);
 }
 
-.grid-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
-.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
 
 /* ============================================
    HEADER & NAVIGATION
@@ -230,6 +284,8 @@ section {
   align-items: center;
   gap: var(--spacing-xs);
 }
+
+
 
 .logo-accent {
   color: var(--color-accent);
@@ -816,21 +872,57 @@ section {
 /* ============================================
    UTILITY CLASSES
    ============================================ */
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.text-center {
+  text-align: center;
+}
 
-.mt-xs { margin-top: var(--spacing-xs); }
-.mt-sm { margin-top: var(--spacing-sm); }
-.mt-md { margin-top: var(--spacing-md); }
-.mt-lg { margin-top: var(--spacing-lg); }
-.mt-xl { margin-top: var(--spacing-xl); }
+.text-left {
+  text-align: left;
+}
 
-.mb-xs { margin-bottom: var(--spacing-xs); }
-.mb-sm { margin-bottom: var(--spacing-sm); }
-.mb-md { margin-bottom: var(--spacing-md); }
-.mb-lg { margin-bottom: var(--spacing-lg); }
-.mb-xl { margin-bottom: var(--spacing-xl); }
+.text-right {
+  text-align: right;
+}
+
+.mt-xs {
+  margin-top: var(--spacing-xs);
+}
+
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mt-xl {
+  margin-top: var(--spacing-xl);
+}
+
+.mb-xs {
+  margin-bottom: var(--spacing-xs);
+}
+
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mb-xl {
+  margin-bottom: var(--spacing-xl);
+}
 
 /* ============================================
    ANIMATIONS
@@ -840,6 +932,7 @@ section {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -847,8 +940,13 @@ section {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInLeft {
@@ -856,6 +954,7 @@ section {
     opacity: 0;
     transform: translateX(-30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -867,6 +966,7 @@ section {
     opacity: 0;
     transform: translateX(30px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -889,22 +989,22 @@ section {
     --font-size-4xl: 2rem;
     --font-size-3xl: 1.75rem;
   }
-  
+
   section {
     padding: var(--spacing-2xl) 0;
   }
-  
+
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
   }
-  
+
   /* Mobile Navigation */
   .mobile-menu-toggle {
     display: block;
   }
-  
+
   .nav-menu {
     position: fixed;
     top: 70px;
@@ -917,23 +1017,23 @@ section {
     transform: translateX(-100%);
     transition: transform var(--transition-base);
   }
-  
+
   .nav-menu.active {
     transform: translateX(0);
   }
-  
+
   .hero {
     min-height: 500px;
   }
-  
+
   .hero-cta {
     flex-direction: column;
   }
-  
+
   .btn {
     width: 100%;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
   }
@@ -946,24 +1046,24 @@ section {
     --spacing-3xl: 3rem;
     --spacing-2xl: 2.5rem;
   }
-  
+
   .hero-content h1 {
     font-size: 1.75rem;
   }
-  
+
   .hero-content p {
     font-size: var(--font-size-md);
   }
-  
+
   .card-image,
   .property-image-wrapper {
     height: 200px;
   }
-  
+
   .gallery-main {
     height: 300px;
   }
-  
+
   .gallery-thumbnail {
     height: 80px;
   }
@@ -971,6 +1071,7 @@ section {
 
 /* Print Styles */
 @media print {
+
   .header,
   .footer,
   .hero-cta,
