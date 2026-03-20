@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Active Navigation Highlighting
   highlightActiveNav();
+
+  // Scroll Animations
+  animateOnScroll();
 });
 
 // ============================================
