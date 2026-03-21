@@ -55,7 +55,7 @@
     <!-- CONTACT HERO -->
     <section class="benefits" style="padding: 4rem 0;">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h1>Get in Touch</h1>
                 <p>We're here to help with any questions about our properties and services</p>
             </div>
@@ -68,43 +68,39 @@
             <div class="grid grid-2" style="gap: 4rem; align-items: start;">
 
                 <!-- Contact Form -->
-                <div>
-                    <h2 style="color: var(--color-primary); margin-bottom: 1.5rem;">Send Us a Message</h2>
-                    <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">
+                <div class="reveal">
+                    <h2 style="color: var(--text); margin-bottom: 1.5rem;">Send Us a Message</h2>
+                    <p style="color: var(--text-muted); margin-bottom: 2rem;">
                         Fill out the form below and we'll get back to you as soon as possible. Whether you have a
                         question about our properties, pricing, or anything else, we're ready to answer.
                     </p>
-
+ 
                     <form class="contact-form" action="https://formspree.io/f/maqovprn" method="POST">
                         <div class="form-group">
+                            <input type="text" id="name" name="name" class="form-input" placeholder=" " required>
                             <label for="name" class="form-label">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-input" placeholder="John Smith"
-                                required>
                         </div>
-
+ 
                         <div class="form-group">
+                            <input type="email" id="email" name="email" class="form-input" placeholder=" " required>
                             <label for="email" class="form-label">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-input"
-                                placeholder="john.smith@email.com" required>
                         </div>
-
+ 
                         <div class="form-group">
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder=" ">
                             <label for="phone" class="form-label">Phone Number (Optional)</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="+44 7751 573 029">
                         </div>
-
+ 
                         <div class="form-group">
+                            <input type="text" id="subject" name="subject" class="form-input" placeholder=" " required>
                             <label for="subject" class="form-label">Subject *</label>
-                            <input type="text" id="subject" name="subject" class="form-input"
-                                placeholder="Property Enquiry" required>
                         </div>
-
+ 
                         <div class="form-group">
+                            <textarea id="message" name="message" class="form-textarea" placeholder=" " required></textarea>
                             <label for="message" class="form-label">Message *</label>
-                            <textarea id="message" name="message" class="form-textarea"
-                                placeholder="Tell us about your requirements..." required></textarea>
                         </div>
-
+ 
                         <button type="submit" class="btn btn-primary btn-large" style="width: 100%;">
                             Send Message
                         </button>
@@ -112,81 +108,81 @@
                 </div>
 
                 <!-- Contact Information -->
-                <div>
-                    <h2 style="color: var(--color-primary); margin-bottom: 1.5rem;">Contact Information</h2>
-
+                <div class="reveal">
+                    <h2 style="color: var(--text); margin-bottom: 1.5rem;">Contact Information</h2>
+ 
                     <!-- Contact Cards -->
                     <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-
+ 
                         <div
-                            style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--color-accent);">
+                            style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary);">
                             <div style="display: flex; align-items: start; gap: 1rem;">
                                 <span style="font-size: 2rem;">📧</span>
                                 <div>
                                     <h3
-                                        style="color: var(--color-primary); margin-bottom: 0.5rem; font-size: 1.125rem;">
+                                        style="color: var(--text); margin-bottom: 0.5rem; font-size: 1.125rem;">
                                         Email Us</h3>
-                                    <p style="color: var(--color-text-secondary); margin-bottom: 0.5rem;">For general
+                                    <p style="color: var(--text-muted); margin-bottom: 0.5rem;">For general
                                         enquiries:</p>
                                     <a href="mailto:info@skykruze.com"
-                                        style="color: var(--color-accent); font-weight: 600;">info@skykruze.com</a>
+                                        style="color: var(--primary); font-weight: 600;">info@skykruze.com</a>
                                 </div>
                             </div>
                         </div>
-
+ 
                         <div
-                            style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--color-accent);">
+                            style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary);">
                             <div style="display: flex; align-items: start; gap: 1rem;">
                                 <span style="font-size: 2rem;">📱</span>
                                 <div>
                                     <h3
-                                        style="color: var(--color-primary); margin-bottom: 0.5rem; font-size: 1.125rem;">
+                                        style="color: var(--text); margin-bottom: 0.5rem; font-size: 1.125rem;">
                                         Call Us</h3>
-                                    <p style="color: var(--color-text-secondary); margin-bottom: 0.5rem;">Available
+                                    <p style="color: var(--text-muted); margin-bottom: 0.5rem;">Available
                                         Monday - Friday, 9am - 6pm:</p>
                                     <a href="tel:+447751573029"
-                                        style="color: var(--color-accent); font-weight: 600;">+44 7751 573 029</a>
+                                        style="color: var(--primary); font-weight: 600;">+44 7751 573 029</a>
                                 </div>
                             </div>
                         </div>
-
+ 
                         <div
-                            style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--color-accent);">
+                            style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary);">
                             <div style="display: flex; align-items: start; gap: 1rem;">
                                 <span style="font-size: 2rem;">💬</span>
                                 <div>
                                     <h3
-                                        style="color: var(--color-primary); margin-bottom: 0.5rem; font-size: 1.125rem;">
+                                        style="color: var(--text); margin-bottom: 0.5rem; font-size: 1.125rem;">
                                         WhatsApp</h3>
-                                    <p style="color: var(--color-text-secondary); margin-bottom: 0.5rem;">Quick
+                                    <p style="color: var(--text-muted); margin-bottom: 0.5rem;">Quick
                                         questions? Message us:</p>
                                     <a href="https://wa.me/447751573029" target="_blank" rel="noopener noreferrer"
-                                        style="color: var(--color-accent); font-weight: 600;">Chat on WhatsApp</a>
+                                        style="color: var(--primary); font-weight: 600;">Chat on WhatsApp</a>
                                 </div>
                             </div>
                         </div>
-
+ 
                         <div
-                            style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--color-accent);">
+                            style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px; border-left: 4px solid var(--primary);">
                             <div style="display: flex; align-items: start; gap: 1rem;">
                                 <span style="font-size: 2rem;">📍</span>
                                 <div>
                                     <h3
-                                        style="color: var(--color-primary); margin-bottom: 0.5rem; font-size: 1.125rem;">
+                                        style="color: var(--text); margin-bottom: 0.5rem; font-size: 1.125rem;">
                                         Visit Us</h3>
-                                    <p style="color: var(--color-text-secondary);">
+                                    <p style="color: var(--text-muted);">
                                         Jumcent Properties<br>
                                         London, United Kingdom
                                     </p>
                                 </div>
                             </div>
                         </div>
-
+ 
                     </div>
-
+ 
                     <!-- Office Hours -->
                     <div
-                        style="margin-top: 2rem; background-color: var(--color-primary); color: white; padding: 1.5rem; border-radius: 12px;">
+                        style="margin-top: 2rem; background-color: var(--text); color: white; padding: 1.5rem; border-radius: 12px;">
                         <h3 style="color: white; margin-bottom: 1rem; font-size: 1.125rem;">Office Hours</h3>
                         <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem;">
                             <div style="display: flex; justify-content: space-between;">
@@ -203,29 +199,30 @@
                             </div>
                         </div>
                     </div>
-
+ 
                     <!-- Social Media -->
                     <div style="margin-top: 2rem;">
-                        <h3 style="color: var(--color-primary); margin-bottom: 1rem;">Follow Us</h3>
+                        <h3 style="color: var(--text); margin-bottom: 1rem;">Follow Us</h3>
                         <div style="display: flex; gap: 1rem;">
                             <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
-                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; color: white; font-size: 1.5rem; transition: all 0.3s ease;">
+                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: var(--text); border-radius: 50%; color: white; font-size: 1.5rem; transition: all 0.3s ease;">
                                 📘
                             </a>
                             <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
-                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; color: white; font-size: 1.5rem; transition: all 0.3s ease;">
+                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: var(--text); border-radius: 50%; color: white; font-size: 1.5rem; transition: all 0.3s ease;">
                                 📷
                             </a>
                             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
-                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; color: white; font-size: 1.5rem; transition: all 0.3s ease;">
+                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: var(--text); border-radius: 50%; color: white; font-size: 1.5rem; transition: all 0.3s ease;">
                                 🐦
                             </a>
                             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
-                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: var(--color-primary); border-radius: 50%; color: white; font-size: 1.5rem; transition: all 0.3s ease;">
+                                style="display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; background-color: var(--text); border-radius: 50%; color: white; font-size: 1.5rem; transition: all 0.3s ease;">
                                 💼
                             </a>
                         </div>
                     </div>
+                </div>
 
                 </div>
 
@@ -233,39 +230,39 @@
 
             <!-- FAQ Section -->
             <div style="margin-top: 6rem;">
-                <div class="section-header">
+                <div class="section-header reveal">
                     <h2>Frequently Asked Questions</h2>
                 </div>
 
                 <div class="grid grid-2" style="gap: 2rem;">
-                    <div style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; font-size: 1.125rem;">How do I
+                    <div class="reveal" style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color: var(--text); margin-bottom: 0.75rem; font-size: 1.125rem;">How do I
                             book a property?</h3>
-                        <p style="color: var(--color-text-secondary); line-height: 1.75;">All our properties are
+                        <p style="color: var(--text-muted); line-height: 1.75;">All our properties are
                             available to book through Airbnb and Booking.com. Simply visit the property page and click
                             on your preferred booking platform.</p>
                     </div>
-
-                    <div style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; font-size: 1.125rem;">What is
+ 
+                    <div class="reveal" style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color: var(--text); margin-bottom: 0.75rem; font-size: 1.125rem;">What is
                             the minimum stay?</h3>
-                        <p style="color: var(--color-text-secondary); line-height: 1.75;">Minimum stay requirements vary
+                        <p style="color: var(--text-muted); line-height: 1.75;">Minimum stay requirements vary
                             by property and season. Most properties have a minimum stay of 2-3 nights, though we offer
                             flexibility for longer bookings.</p>
                     </div>
-
-                    <div style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; font-size: 1.125rem;">Is
+ 
+                    <div class="reveal" style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color: var(--text); margin-bottom: 0.75rem; font-size: 1.125rem;">Is
                             cleaning included?</h3>
-                        <p style="color: var(--color-text-secondary); line-height: 1.75;">Yes, all properties include
+                        <p style="color: var(--text-muted); line-height: 1.75;">Yes, all properties include
                             professional cleaning before your arrival. For extended stays, we can arrange additional
                             cleaning services at an extra cost.</p>
                     </div>
-
-                    <div style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px;">
-                        <h3 style="color: var(--color-primary); margin-bottom: 0.75rem; font-size: 1.125rem;">Do you
+ 
+                    <div class="reveal" style="background-color: var(--color-off-white); padding: 1.5rem; border-radius: 12px;">
+                        <h3 style="color: var(--text); margin-bottom: 0.75rem; font-size: 1.125rem;">Do you
                             offer corporate rates?</h3>
-                        <p style="color: var(--color-text-secondary); line-height: 1.75;">Yes, we offer special rates
+                        <p style="color: var(--text-muted); line-height: 1.75;">Yes, we offer special rates
                             for corporate bookings and long-term stays. Please contact us directly to discuss your
                             requirements and receive a customized quote.</p>
                     </div>
@@ -275,56 +272,56 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Jumcent Properties</h3>
-                    <p>Premium serviced accommodation for business and leisure stays in the UK.</p>
-                    <div class="footer-social">
-                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link"
-                            aria-label="Facebook">
-                            <span>📘</span>
-                        </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link"
-                            aria-label="Instagram">
-                            <span>📷</span>
-                        </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link"
-                            aria-label="Twitter">
-                            <span>🐦</span>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <a href="index.html">Home</a>
-                    <a href="properties.html">Properties</a>
-                    <a href="about.html">About Us</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Book With Us</h3>
-                    <a href="https://www.airbnb.co.uk" target="_blank" rel="noopener noreferrer">Airbnb Listings</a>
-                    <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer">Booking.com Listings</a>
-                </div>
-
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>📧 info@skykruze.com</p>
-                    <p>📱 +44 7751 573 029</p>
-                    <p>📍 London, United Kingdom</p>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 Jumcent Properties. All rights reserved.</p>
-            </div>
+      <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Jumcent Properties</h3>
+          <p>Premium serviced accommodation for business and leisure stays in the UK.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link"
+              aria-label="Facebook">
+              <span>📘</span>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link"
+              aria-label="Instagram">
+              <span>📷</span>
+            </a>
+            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link"
+              aria-label="Twitter">
+              <span>🐦</span>
+            </a>
+          </div>
         </div>
-    </footer>
+
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <a href="index.html">Home</a>
+          <a href="properties.html">Properties</a>
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="footer-section">
+          <h3>Book With Us</h3>
+          <a href="https://www.airbnb.co.uk" target="_blank" rel="noopener noreferrer">Airbnb Listings</a>
+          <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer">Booking.com Listings</a>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p>📧 info@skykruze.com</p>
+          <p>📱 +44 7751 573 029</p>
+          <p>📍 London, United Kingdom</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Jumcent Properties. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
     <script src="script.js"></script>
 </body>
