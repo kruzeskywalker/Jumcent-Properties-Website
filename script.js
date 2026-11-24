@@ -1,452 +1,652 @@
 // ============================================
-// JUMCENT PROPERTIES - JAVASCRIPT FUNCTIONALITY
+// JUMCENT PROPERTIES — FRONTEND INTERACTIVITY
+// Accessible · Performant · UK PECR Compliant
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function () {
-  // Mobile Navigation Toggle
-  initMobileMenu();
+(function () {
+  'use strict';
 
-  // Smooth Scroll for Navigation Links
-  initSmoothScroll();
+  const GA_MEASUREMENT_ID = 'G-N89EW0TN2Y';
+  const CONSENT_STORAGE_KEY = 'jumcent_cookie_consent_v1';
+  let gaLoaded = false;
 
-  // Header Scroll Effect
-  initHeaderScroll();
+  // Enable progressive reveal styles before paint when motion is permitted
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion) {
+    document.documentElement.classList.add('js-enabled');
+  }
 
-  // Contact Form Handling
-  initContactForm();
-
-  // Image Gallery (for property detail pages)
-  initGallery();
-
-  // Lazy Loading Images
-  initLazyLoading();
-
-  // Active Navigation Highlighting
-  highlightActiveNav();
-
-  // Scroll Animations
-  animateOnScroll();
-
-  // Parallax Hero Effect
-  initParallax();
-
-  // Page Transitions
-  initPageTransitions();
-
-  // Magnetic Buttons
-  initMagneticButtons();
-});
-
-// ============================================
-// MAGNETIC BUTTONS
-// ============================================
-function initMagneticButtons() {
-  const buttons = document.querySelectorAll('.btn');
-  
-  buttons.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
-      btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = 'translate(0, 0)';
-    });
+  document.addEventListener('DOMContentLoaded', function () {
+    initMobileMenu();
+    initHeaderScroll();
+    highlightActiveNav();
+    initSmoothScroll();
+    initScrollReveal();
+    initPropertyFilters();
+    initGalleryAndLightbox();
+    initContactForm();
+    initCookieConsent();
   });
-}
 
-// ============================================
-// PARALLAX HERO EFFECT
-// ============================================
-function initParallax() {
-  const heroBackground = document.querySelector('.hero-background');
-  if (heroBackground) {
-    window.addEventListener('scroll', () => {
-      const scrollValue = window.pageYOffset;
-      heroBackground.style.transform = `translateY(${scrollValue * 0.4}px)`;
+  // ============================================
+  // 1. UK PECR / GDPR CONSENT-GATED ANALYTICS
+  // ============================================
+  function loadGoogleAnalytics() {
+    if (gaLoaded) return;
+    gaLoaded = true;
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_MEASUREMENT_ID);
+    document.head.appendChild(script);
+  }
+
+  function initCookieConsent() {
+    let savedChoice = null;
+    try {
+      savedChoice = localStorage.getItem(CONSENT_STORAGE_KEY);
+    } catch (_) {
+      savedChoice = null;
+    }
+
+    if (savedChoice === 'accepted') {
+      loadGoogleAnalytics();
+    }
+
+    // Build banner once so users can also reopen preferences from footer
+    const banner = document.createElement('aside');
+    banner.className = 'cookie-banner';
+    banner.setAttribute('aria-label', 'Cookie preferences');
+    banner.hidden = savedChoice === 'accepted' || savedChoice === 'essential';
+
+    const text = document.createElement('p');
+    text.textContent = 'We use optional analytics cookies to understand how visitors explore our properties and improve your experience. ';
+    const policyLink = document.createElement('a');
+    policyLink.href = 'privacy.html#cookies';
+    policyLink.textContent = 'Read Cookie & Privacy Policy';
+    text.appendChild(policyLink);
+
+    const actions = document.createElement('div');
+    actions.className = 'cookie-actions';
+
+    const essentialBtn = document.createElement('button');
+    essentialBtn.type = 'button';
+    essentialBtn.className = 'btn btn-outline btn-sm';
+    essentialBtn.textContent = 'Essential Only';
+
+    const acceptBtn = document.createElement('button');
+    acceptBtn.type = 'button';
+    acceptBtn.className = 'btn btn-primary btn-sm';
+    acceptBtn.textContent = 'Accept Analytics';
+
+    essentialBtn.addEventListener('click', function () {
+      try {
+        localStorage.setItem(CONSENT_STORAGE_KEY, 'essential');
+      } catch (_) {}
+      banner.hidden = true;
+    });
+
+    acceptBtn.addEventListener('click', function () {
+      try {
+        localStorage.setItem(CONSENT_STORAGE_KEY, 'accepted');
+      } catch (_) {}
+      banner.hidden = true;
+      loadGoogleAnalytics();
+    });
+
+    actions.appendChild(essentialBtn);
+    actions.appendChild(acceptBtn);
+    banner.appendChild(text);
+    banner.appendChild(actions);
+    document.body.appendChild(banner);
+
+    // Allow reopening preferences from footer link
+    document.querySelectorAll('[data-open-cookies]').forEach(function (trigger) {
+      trigger.addEventListener('click', function (e) {
+        e.preventDefault();
+        banner.hidden = false;
+        acceptBtn.focus();
+      });
     });
   }
-}
 
-// ============================================
-// PAGE TRANSITIONS
-// ============================================
-function initPageTransitions() {
-  document.body.classList.add('page-loaded');
+  // ============================================
+  // 2. ACCESSIBLE MOBILE NAVIGATION
+  // ============================================
+  function initMobileMenu() {
+    const toggle = document.querySelector('.mobile-menu-toggle');
+    const menu = document.querySelector('.nav-menu');
+    if (!toggle || !menu) return;
 
-  const links = document.querySelectorAll('a:not([target="_blank"]):not([href^="#"])');
-  links.forEach(link => {
-    link.addEventListener('click', (e) => {
-      const href = link.getAttribute('href');
-      if (href && !href.startsWith('mailto:') && !href.startsWith('tel:')) {
-        e.preventDefault();
-        document.body.classList.remove('page-loaded');
-        setTimeout(() => {
-          window.location.href = href;
-        }, 300);
-      }
-    });
-  });
-}
+    const hamburger = toggle.querySelector('.hamburger');
 
-// ============================================
-// MOBILE NAVIGATION
-// ============================================
-function initMobileMenu() {
-  const toggle = document.querySelector('.mobile-menu-toggle');
-  const menu = document.querySelector('.nav-menu');
-
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-      toggle.classList.toggle('active');
-
-      // Animate hamburger icon
-      const hamburger = toggle.querySelector('.hamburger');
+    function setMenuOpen(isOpen) {
+      menu.classList.toggle('active', isOpen);
+      toggle.classList.toggle('active', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
       if (hamburger) {
-        hamburger.classList.toggle('active');
+        hamburger.classList.toggle('active', isOpen);
       }
+    }
+
+    toggle.addEventListener('click', function () {
+      const isOpen = !menu.classList.contains('active');
+      setMenuOpen(isOpen);
     });
 
-    // Close menu when clicking on a nav link
-    const navLinks = menu.querySelectorAll('.nav-link');
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.remove('active');
-        toggle.classList.remove('active');
+    menu.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        setMenuOpen(false);
       });
     });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.remove('active');
-        toggle.classList.remove('active');
+    document.addEventListener('click', function (e) {
+      if (menu.classList.contains('active') && !toggle.contains(e.target) && !menu.contains(e.target)) {
+        setMenuOpen(false);
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menu.classList.contains('active')) {
+        setMenuOpen(false);
+        toggle.focus();
       }
     });
   }
-}
 
-// ============================================
-// SMOOTH SCROLL
-// ============================================
-function initSmoothScroll() {
-  const links = document.querySelectorAll('a[href^="#"]');
+  // ============================================
+  // 3. PASSIVE SCROLL HEADER
+  // ============================================
+  function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
 
-  links.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
+    let ticking = false;
+    function updateHeader() {
+      header.classList.toggle('scrolled', window.scrollY > 60);
+      ticking = false;
+    }
 
-      // Only prevent default for anchor links (not just "#")
-      if (href !== '#' && href.length > 1) {
-        e.preventDefault();
-        const target = document.querySelector(href);
+    updateHeader();
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(updateHeader);
+        ticking = true;
+      }
+    }, { passive: true });
+  }
 
-        if (target) {
-          const headerOffset = 80;
-          const elementPosition = target.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+  // ============================================
+  // 4. ACTIVE NAVIGATION HIGHLIGHTING
+  // ============================================
+  function highlightActiveNav() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const rawPage = window.location.pathname.split('/').pop() || 'index.html';
+    const isPropertyDetail = rawPage.startsWith('property-');
 
-          window.scrollTo({
-            top: offsetPosition,
-            behavior: 'smooth'
-          });
+    navLinks.forEach(function (link) {
+      const href = link.getAttribute('href');
+      const isHome = (rawPage === '' || rawPage === 'index.html') && (href === '/' || href === 'index.html');
+      const isDirectMatch = href === rawPage;
+      const isPropertiesSection = isPropertyDetail && href === 'properties.html';
+
+      if (isHome || isDirectMatch || isPropertiesSection) {
+        link.classList.add('active');
+        if (!isPropertiesSection) {
+          link.setAttribute('aria-current', 'page');
         }
       }
     });
-  });
-}
+  }
 
-// ============================================
-// HEADER SCROLL EFFECT
-// ============================================
-function initHeaderScroll() {
-  const header = document.querySelector('.header');
-
-  if (header) {
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-
-      if (currentScroll > 100) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-
-      lastScroll = currentScroll;
+  // ============================================
+  // 5. SMOOTH ANCHOR SCROLLING
+  // ============================================
+  function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#' || link.hasAttribute('data-open-cookies')) return;
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const offset = 92;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top: top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+        }
+      });
     });
   }
-}
 
-// ============================================
-// ACTIVE NAVIGATION HIGHLIGHTING
-// ============================================
-function highlightActiveNav() {
-  const navLinks = document.querySelectorAll('.nav-link');
-  const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+  // ============================================
+  // 6. PROGRESSIVE SCROLL REVEAL
+  // ============================================
+  function initScrollReveal() {
+    const elements = document.querySelectorAll('.reveal');
+    if (!elements.length) return;
 
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPage || (currentPage === '' && href === 'index.html')) {
-      link.classList.add('active');
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      elements.forEach(function (el) {
+        el.classList.add('active');
+      });
+      return;
     }
-  });
-}
 
-// ============================================
-// CONTACT FORM
-// ============================================
-function initContactForm() {
-  const form = document.querySelector('.contact-form');
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-  if (form) {
+    elements.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  // ============================================
+  // 7. UK / INTERNATIONAL PROPERTY FILTERING
+  // ============================================
+  function initPropertyFilters() {
+    const filterButtons = document.querySelectorAll('[data-filter]');
+    const cards = document.querySelectorAll('.property-card[data-region]');
+    if (!filterButtons.length || !cards.length) return;
+
+    const statusRegion = document.getElementById('filter-status');
+
+    function applyFilter(region) {
+      let visibleCount = 0;
+      cards.forEach(function (card) {
+        const cardRegion = card.getAttribute('data-region');
+        const matches = region === 'all' || cardRegion === region;
+        card.hidden = !matches;
+        if (matches) {
+          card.classList.add('active');
+          visibleCount++;
+        }
+      });
+
+      filterButtons.forEach(function (btn) {
+        const isSelected = btn.getAttribute('data-filter') === region;
+        btn.classList.toggle('active', isSelected);
+        btn.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
+      });
+
+      if (statusRegion) {
+        const labelMap = {
+          all: 'all locations',
+          uk: 'United Kingdom',
+          international: 'International'
+        };
+        statusRegion.textContent = 'Showing ' + visibleCount + (visibleCount === 1 ? ' property' : ' properties') + ' in ' + (labelMap[region] || region) + '.';
+      }
+    }
+
+    filterButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        const region = btn.getAttribute('data-filter');
+        applyFilter(region);
+        try {
+          const url = new URL(window.location.href);
+          if (region === 'all') {
+            url.searchParams.delete('region');
+          } else {
+            url.searchParams.set('region', region);
+          }
+          window.history.replaceState({}, '', url.toString());
+        } catch (_) {}
+      });
+    });
+
+    // Apply initial filter from URL if present (?region=uk or ?region=international)
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const initialRegion = params.get('region');
+      if (initialRegion && ['all', 'uk', 'international'].includes(initialRegion)) {
+        applyFilter(initialRegion);
+      }
+    } catch (_) {}
+  }
+
+  // ============================================
+  // 8. ACCESSIBLE GALLERY & FULLSCREEN LIGHTBOX
+  // ============================================
+  function initGalleryAndLightbox() {
+    const gallery = document.querySelector('.gallery');
+    const mainImg = document.querySelector('.gallery-main img');
+    const thumbs = Array.from(document.querySelectorAll('.gallery-thumbnail'));
+    if (!gallery || !mainImg || !thumbs.length) return;
+
+    let currentIndex = 0;
+    let lastFocusedBeforeModal = null;
+
+    const mainContainer = document.querySelector('.gallery-main');
+
+    // Add Prev / Next / Counter / Expand UI inside .gallery-main
+    const prevBtn = document.createElement('button');
+    prevBtn.type = 'button';
+    prevBtn.className = 'gallery-nav-btn gallery-prev';
+    prevBtn.setAttribute('aria-label', 'Previous photo');
+    prevBtn.textContent = '‹';
+
+    const nextBtn = document.createElement('button');
+    nextBtn.type = 'button';
+    nextBtn.className = 'gallery-nav-btn gallery-next';
+    nextBtn.setAttribute('aria-label', 'Next photo');
+    nextBtn.textContent = '›';
+
+    const counter = document.createElement('div');
+    counter.className = 'gallery-counter';
+    counter.setAttribute('aria-live', 'polite');
+
+    const expandBtn = document.createElement('button');
+    expandBtn.type = 'button';
+    expandBtn.className = 'gallery-expand-btn';
+    expandBtn.textContent = '⤢ View Fullscreen';
+
+    mainContainer.appendChild(prevBtn);
+    mainContainer.appendChild(nextBtn);
+    mainContainer.appendChild(expandBtn);
+    mainContainer.appendChild(counter);
+
+    // Build Lightbox Modal
+    const modal = document.createElement('div');
+    modal.className = 'lightbox-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Property photo viewer');
+    modal.hidden = true;
+
+    const closeBtn = document.createElement('button');
+    closeBtn.type = 'button';
+    closeBtn.className = 'lightbox-close';
+    closeBtn.setAttribute('aria-label', 'Close fullscreen photo viewer');
+    closeBtn.textContent = '×';
+
+    const modalPrev = document.createElement('button');
+    modalPrev.type = 'button';
+    modalPrev.className = 'gallery-nav-btn gallery-prev';
+    modalPrev.setAttribute('aria-label', 'Previous photo');
+    modalPrev.textContent = '‹';
+
+    const modalNext = document.createElement('button');
+    modalNext.type = 'button';
+    modalNext.className = 'gallery-nav-btn gallery-next';
+    modalNext.setAttribute('aria-label', 'Next photo');
+    modalNext.textContent = '›';
+
+    const imgWrap = document.createElement('div');
+    imgWrap.className = 'lightbox-image-wrap';
+    const modalImg = document.createElement('img');
+    modalImg.alt = '';
+    imgWrap.appendChild(modalImg);
+
+    const caption = document.createElement('p');
+    caption.className = 'lightbox-caption';
+
+    modal.appendChild(closeBtn);
+    modal.appendChild(modalPrev);
+    modal.appendChild(imgWrap);
+    modal.appendChild(modalNext);
+    modal.appendChild(caption);
+    document.body.appendChild(modal);
+
+    function syncSlide(index) {
+      currentIndex = (index + thumbs.length) % thumbs.length;
+      const targetThumb = thumbs[currentIndex];
+      const thumbImg = targetThumb.querySelector('img');
+      if (!thumbImg) return;
+
+      thumbs.forEach(function (t, idx) {
+        const active = idx === currentIndex;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-current', active ? 'true' : 'false');
+      });
+
+      mainImg.src = thumbImg.src;
+      mainImg.alt = thumbImg.alt;
+      counter.textContent = (currentIndex + 1) + ' / ' + thumbs.length;
+
+      if (!modal.hidden) {
+        modalImg.src = thumbImg.src;
+        modalImg.alt = thumbImg.alt;
+        caption.textContent = thumbImg.alt + ' (' + (currentIndex + 1) + ' of ' + thumbs.length + ')';
+      }
+    }
+
+    function openLightbox() {
+      lastFocusedBeforeModal = document.activeElement;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      syncSlide(currentIndex);
+      closeBtn.focus();
+    }
+
+    function closeLightbox() {
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      if (lastFocusedBeforeModal && typeof lastFocusedBeforeModal.focus === 'function') {
+        lastFocusedBeforeModal.focus();
+      }
+    }
+
+    thumbs.forEach(function (thumb, idx) {
+      thumb.addEventListener('click', function () {
+        syncSlide(idx);
+      });
+    });
+
+    prevBtn.addEventListener('click', function () { syncSlide(currentIndex - 1); });
+    nextBtn.addEventListener('click', function () { syncSlide(currentIndex + 1); });
+    modalPrev.addEventListener('click', function () { syncSlide(currentIndex - 1); });
+    modalNext.addEventListener('click', function () { syncSlide(currentIndex + 1); });
+    expandBtn.addEventListener('click', openLightbox);
+    mainImg.addEventListener('click', openLightbox);
+    closeBtn.addEventListener('click', closeLightbox);
+
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (modal.hidden) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') syncSlide(currentIndex - 1);
+      if (e.key === 'ArrowRight') syncSlide(currentIndex + 1);
+    });
+
+    // Touch swipe support on main gallery & lightbox
+    let touchStartX = 0;
+    [mainContainer, modal].forEach(function (surface) {
+      surface.addEventListener('touchstart', function (e) {
+        if (e.changedTouches && e.changedTouches[0]) {
+          touchStartX = e.changedTouches[0].screenX;
+        }
+      }, { passive: true });
+
+      surface.addEventListener('touchend', function (e) {
+        if (!e.changedTouches || !e.changedTouches[0]) return;
+        const delta = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(delta) > 45) {
+          syncSlide(delta < 0 ? currentIndex + 1 : currentIndex - 1);
+        }
+      }, { passive: true });
+    });
+
+    syncSlide(0);
+  }
+
+  // ============================================
+  // 9. HARDENED CONTACT FORM WITH PROPERTY PREFILL
+  // ============================================
+  function initContactForm() {
+    const form = document.querySelector('.contact-form');
+    if (!form) return;
+
+    // Prefill property dropdown/subject if ?property=... is in URL
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const propParam = params.get('property');
+      const propSelect = document.getElementById('property');
+      const subjectInput = document.getElementById('subject');
+      if (propParam && propSelect) {
+        Array.from(propSelect.options).forEach(function (opt) {
+          if (opt.value.toLowerCase() === propParam.toLowerCase()) {
+            propSelect.value = opt.value;
+          }
+        });
+      }
+      if (propParam && subjectInput && !subjectInput.value) {
+        subjectInput.value = 'Enquiry regarding ' + propParam;
+      }
+    } catch (_) {}
+
+    let lastSubmitTime = 0;
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      clearFormFeedback(form);
 
-      // Clear previous errors
-      clearFormErrors();
+      // Honeypot bot check
+      const honeypot = form.querySelector('input[name="_gotcha"]');
+      if (honeypot && honeypot.value) {
+        showBannerFeedback(form, 'Thank you! Your message has been received.', 'success');
+        form.reset();
+        return;
+      }
 
-      // Get form values
+      // Simple client-side rate cooldown (10s)
+      const now = Date.now();
+      if (now - lastSubmitTime < 10000) {
+        showBannerFeedback(form, 'Please wait a moment before sending another message.', 'error');
+        return;
+      }
+
       const name = document.getElementById('name');
       const email = document.getElementById('email');
+      const subject = document.getElementById('subject');
       const message = document.getElementById('message');
 
       let isValid = true;
 
-      // Validate name
-      if (!name.value.trim()) {
-        showError(name, 'Please enter your name');
+      if (!name || !name.value.trim()) {
+        showFieldError(name, 'Please enter your full name.');
         isValid = false;
       }
 
-      // Validate email
-      if (!email.value.trim()) {
-        showError(email, 'Please enter your email');
+      if (!email || !email.value.trim()) {
+        showFieldError(email, 'Please enter your email address.');
         isValid = false;
-      } else if (!isValidEmail(email.value)) {
-        showError(email, 'Please enter a valid email address');
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())) {
+        showFieldError(email, 'Please enter a valid email address.');
         isValid = false;
       }
 
-      // Validate message
-      if (!message.value.trim()) {
-        showError(message, 'Please enter a message');
+      if (subject && !subject.value.trim()) {
+        showFieldError(subject, 'Please enter a subject.');
+        isValid = false;
+      }
+
+      if (!message || !message.value.trim()) {
+        showFieldError(message, 'Please enter your message.');
         isValid = false;
       } else if (message.value.trim().length < 10) {
-        showError(message, 'Message must be at least 10 characters long');
+        showFieldError(message, 'Message must be at least 10 characters long.');
         isValid = false;
       }
 
-      // If valid, submit to Formspree
-      if (isValid) {
-        const formData = new FormData(form);
-        const submitButton = form.querySelector('button[type="submit"]');
-        const originalButtonText = submitButton.textContent;
+      if (!isValid) return;
 
-        // Disable button and show loading state
-        submitButton.disabled = true;
-        submitButton.textContent = 'Sending...';
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalText = submitBtn ? submitBtn.textContent : 'Send Message';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+      }
 
-        fetch("https://formspree.io/f/maqovprn", {
-          method: "POST",
-          body: formData,
-          headers: {
-            'Accept': 'application/json'
-          }
-        }).then(response => {
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { Accept: 'application/json' }
+      })
+        .then(function (response) {
           if (response.ok) {
-            showSuccessMessage();
+            lastSubmitTime = Date.now();
+            showBannerFeedback(
+              form,
+              'Thank you! Your message has been sent successfully. Our team will get back to you shortly.',
+              'success'
+            );
             form.reset();
           } else {
-            response.json().then(data => {
-              if (Object.hasOwn(data, 'errors')) {
-                alert(data["errors"].map(error => error["message"]).join(", "));
-              } else {
-                alert("Oops! There was a problem submitting your form");
-              }
-            })
+            return response.json().then(function (data) {
+              const errMsg =
+                data && Array.isArray(data.errors)
+                  ? data.errors.map(function (err) { return err.message; }).join(', ')
+                  : 'Sorry, there was a problem sending your message. Please email us directly at info@skykruze.com.';
+              showBannerFeedback(form, errMsg, 'error');
+            });
           }
-        }).catch(error => {
-          alert("Oops! There was a problem submitting your form");
-        }).finally(() => {
-          submitButton.disabled = false;
-          submitButton.textContent = originalButtonText;
+        })
+        .catch(function () {
+          showBannerFeedback(
+            form,
+            'Network error while submitting the form. Please try again or email info@skykruze.com.',
+            'error'
+          );
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+          }
         });
-      }
     });
   }
-}
 
-function isValidEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
-}
-
-function showError(input, message) {
-  const formGroup = input.closest('.form-group');
-  const error = document.createElement('div');
-  error.className = 'form-error';
-  error.textContent = message;
-
-  input.classList.add('error');
-  formGroup.appendChild(error);
-}
-
-function clearFormErrors() {
-  const errors = document.querySelectorAll('.form-error');
-  errors.forEach(error => error.remove());
-
-  const errorInputs = document.querySelectorAll('.form-input.error, .form-textarea.error');
-  errorInputs.forEach(input => input.classList.remove('error'));
-}
-
-function showSuccessMessage() {
-  const form = document.querySelector('.contact-form');
-  const success = document.createElement('div');
-  success.className = 'form-success';
-  success.innerHTML = '<strong>Thank you!</strong> Your message has been sent successfully. We\'ll get back to you soon.';
-
-  form.insertBefore(success, form.firstChild);
-
-  // Scroll to success message
-  success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-  // Remove success message after 5 seconds
-  setTimeout(() => {
-    success.remove();
-  }, 5000);
-}
-
-// ============================================
-// IMAGE GALLERY
-// ============================================
-function initGallery() {
-  const thumbnails = document.querySelectorAll('.gallery-thumbnail');
-  const mainImage = document.querySelector('.gallery-main img');
-
-  if (thumbnails.length > 0 && mainImage) {
-    thumbnails.forEach((thumb, index) => {
-      thumb.addEventListener('click', function () {
-        // Remove active class from all thumbnails
-        thumbnails.forEach(t => t.classList.remove('active'));
-
-        // Add active class to clicked thumbnail
-        this.classList.add('active');
-
-        // Get the image from the thumbnail
-        const thumbImg = this.querySelector('img');
-        if (thumbImg) {
-          // Fade out main image
-          mainImage.style.opacity = '0';
-
-          // Change source and fade in
-          setTimeout(() => {
-            mainImage.src = thumbImg.src;
-            mainImage.alt = thumbImg.alt;
-            mainImage.style.opacity = '1';
-          }, 200);
-        }
-      });
-    });
-
-    // Set first thumbnail as active
-    if (thumbnails[0]) {
-      thumbnails[0].classList.add('active');
-    }
+  function showFieldError(input, message) {
+    if (!input) return;
+    const group = input.closest('.form-group');
+    if (!group) return;
+    const err = document.createElement('div');
+    err.className = 'form-error';
+    err.setAttribute('role', 'alert');
+    err.textContent = message;
+    input.classList.add('error');
+    input.setAttribute('aria-invalid', 'true');
+    group.appendChild(err);
   }
-}
 
-// ============================================
-// LAZY LOADING IMAGES
-// ============================================
-function initLazyLoading() {
-  // Check if IntersectionObserver is supported
-  if ('IntersectionObserver' in window) {
-    const images = document.querySelectorAll('img[data-src]');
+  function showBannerFeedback(form, message, type) {
+    const banner = document.createElement('div');
+    banner.className = 'form-feedback ' + (type === 'success' ? 'form-success' : 'form-alert-error');
+    banner.setAttribute('role', type === 'success' ? 'status' : 'alert');
+    banner.textContent = message;
+    form.insertBefore(banner, form.firstChild);
+    banner.scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'nearest' });
+  }
 
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const img = entry.target;
-          img.src = img.dataset.src;
-          img.classList.add('fade-in');
-          img.removeAttribute('data-src');
-          observer.unobserve(img);
-        }
-      });
-    }, {
-      rootMargin: '50px'
+  function clearFormFeedback(form) {
+    form.querySelectorAll('.form-error, .form-feedback').forEach(function (el) {
+      el.remove();
     });
-
-    images.forEach(img => imageObserver.observe(img));
-  } else {
-    // Fallback for browsers that don't support IntersectionObserver
-    const images = document.querySelectorAll('img[data-src]');
-    images.forEach(img => {
-      img.src = img.dataset.src;
-      img.removeAttribute('data-src');
+    form.querySelectorAll('.error').forEach(function (el) {
+      el.classList.remove('error');
+      el.removeAttribute('aria-invalid');
     });
   }
-}
-
-// ============================================
-// UTILITY FUNCTIONS
-// ============================================
-
-// Animate elements on scroll
-function animateOnScroll() {
-  const elements = document.querySelectorAll('.reveal');
-
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('active');
-          // Optional: stop observing after reveal
-          // observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.15,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    elements.forEach(el => observer.observe(el));
-  } else {
-    // Fallback: just show them
-    elements.forEach(el => el.classList.add('active'));
-  }
-}
-
-// External link handling (opens in new tab)
-function initExternalLinks() {
-  const links = document.querySelectorAll('a[href^="http"]');
-  links.forEach(link => {
-    if (!link.hasAttribute('target')) {
-      link.setAttribute('target', '_blank');
-      link.setAttribute('rel', 'noopener noreferrer');
-    }
-  });
-}
-
-// Initialize external links when DOM loads
-document.addEventListener('DOMContentLoaded', initExternalLinks);
-
-// ============================================
-// SEO & ANALYTICS (Placeholder)
-// ============================================
-
-// This is where you would add:
-// - Google Analytics
-// - Facebook Pixel
-// - Other tracking scripts
-
-// Example:
-// function initAnalytics() {
-//   // Google Analytics code here
-// }
+})();

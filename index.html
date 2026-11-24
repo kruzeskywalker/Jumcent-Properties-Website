@@ -1,40 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N89EW0TN2Y"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-N89EW0TN2Y');
-  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Jumcent Properties - Premium short-let serviced accommodation for business and leisure stays in the UK. Fully furnished apartments with modern amenities.">
-  <meta name="keywords"
-    content="short let stoke, short let crewe, short stay stoke, short stay crewe, short let newcastle, short let cheshire east, contractor accommodation, serviced apartments, Jumcent Properties">
+    content="Jumcent Properties — Premium short-let serviced accommodation in Crewe, Stoke-on-Trent, Newcastle upon Tyne, and international locations. Ideal for contractors, corporate teams, and families.">
   <meta name="author" content="Jumcent Properties">
 
-  <!-- Open Graph / Social Media -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.jumcentproperties.com/">
-  <meta property="og:title" content="Jumcent Properties | Premium Short Let & Serviced Apartments">
+  <meta property="og:site_name" content="Jumcent Properties">
+  <meta property="og:url" content="https://jumcentproperties.co.uk/">
+  <meta property="og:title" content="Jumcent Properties | Premium Short-Let &amp; Serviced Accommodation">
   <meta property="og:description"
-    content="Find your perfect short stay in Stoke, Crewe, and Newcastle. Luxury serviced apartments and contractor accommodation.">
-  <meta property="og:image" content="https://www.jumcentproperties.com/images/logo.png">
+    content="Fully furnished serviced homes in Crewe, Stoke-on-Trent, Newcastle, and Akure. Book via Airbnb, Booking.com, or enquire direct for corporate rates.">
+  <meta property="og:image" content="https://jumcentproperties.co.uk/images/hero-apartment.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jumcent Properties | Premium Short Let & Serviced Apartments">
-  <meta name="twitter:description" content="Find your perfect short stay in Stoke, Crewe, and Newcastle. Luxury serviced apartments and contractor accommodation.">
-  <meta name="twitter:image" content="https://www.jumcentproperties.com/images/logo.png">
+  <meta name="twitter:title" content="Jumcent Properties | Premium Short-Let &amp; Serviced Accommodation">
+  <meta name="twitter:description"
+    content="Fully furnished serviced homes in Crewe, Stoke-on-Trent, Newcastle, and Akure. Perfect for contractors, business travellers, and families.">
+  <meta name="twitter:image" content="https://jumcentproperties.co.uk/images/hero-apartment.jpg">
 
   <!-- Canonical URL -->
-  <link rel="canonical" href="https://www.jumcentproperties.com/">
+  <link rel="canonical" href="https://jumcentproperties.co.uk/">
 
   <!-- Structured Data (JSON-LD) -->
   <script type="application/ld+json">
@@ -42,320 +33,339 @@
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     "name": "Jumcent Properties",
-    "description": "Premium short-let serviced accommodation for business and leisure stays in the UK. Fully furnished apartments with modern amenities.",
-    "url": "https://www.jumcentproperties.com/",
-    "logo": "https://www.jumcentproperties.com/images/logo.png",
-    "image": "https://www.jumcentproperties.com/images/hero-apartment.jpg",
+    "description": "Premium short-let serviced accommodation for business, contractor, and leisure stays across the United Kingdom and select international destinations.",
+    "url": "https://jumcentproperties.co.uk/",
+    "logo": "https://jumcentproperties.co.uk/images/logo.png",
+    "image": "https://jumcentproperties.co.uk/images/hero-apartment.jpg",
     "telephone": "+447751573029",
     "email": "info@skykruze.com",
+    "priceRange": "££",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "London",
       "addressCountry": "GB"
     },
-    "sameAs": [
-      "https://facebook.com",
-      "https://instagram.com",
-      "https://twitter.com"
+    "areaServed": [
+      { "@type": "City", "name": "Crewe" },
+      { "@type": "City", "name": "Stoke-on-Trent" },
+      { "@type": "City", "name": "Newcastle upon Tyne" },
+      { "@type": "City", "name": "Akure" }
     ]
   }
   </script>
 
-  <!-- Favicon (add your favicon files) -->
-  <link rel="icon" type="image/png" href="images/favicon.png">
+  <!-- Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
-  <title>Jumcent Properties | Short Lets in Stoke, Crewe & Newcastle</title>
+  <!-- Google Fonts (Non-blocking Preconnect) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&family=Playfair+Display:wght@600;700&display=swap">
 
-  <!-- Stylesheet -->
+  <title>Jumcent Properties | Short Lets in Stoke, Crewe &amp; Newcastle</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- HEADER & NAVIGATION -->
   <header class="header">
     <div class="container">
-      <nav class="nav">
-        <a href="index.html" class="logo">
-          <img src="images/favicon.png" alt="Jumcent Properties Logo" style="height: 40px; width: auto;">
-          <span>Jumcent</span> <span class="logo-accent">Properties</span>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="/" class="logo">
+          <img src="images/logo-nav.png" alt="Jumcent Properties Logo" width="40" height="40">
+          <span>Jumcent <span class="logo-accent">Properties</span></span>
         </a>
 
-        <div class="nav-menu">
-          <a href="index.html" class="nav-link">Home</a>
+        <div class="nav-menu" id="primary-navigation">
+          <a href="/" class="nav-link">Home</a>
           <a href="properties.html" class="nav-link">Properties</a>
           <a href="about.html" class="nav-link">About Us</a>
           <a href="contact.html" class="nav-link">Contact</a>
+          <a href="contact.html" class="btn btn-primary nav-cta">Direct Enquiry</a>
         </div>
 
-        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-          <div class="hamburger">
+        <button class="mobile-menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false"
+          aria-controls="primary-navigation">
+          <span class="hamburger" aria-hidden="true">
             <span></span>
             <span></span>
             <span></span>
-          </div>
+          </span>
         </button>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
 
-  <!-- HERO SECTION -->
-  <section class="hero">
-    <img src="images/hero-apartment.jpg" alt="Modern luxury serviced apartment" class="hero-background">
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <img src="images/hero-apartment.jpg" alt="Contemporary furnished living room at Jumcent Properties"
+        class="hero-background" width="1024" height="1024" fetchpriority="high">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="container">
+          <span class="hero-eyebrow">&#10022; Serviced Short-Let Specialists &#10022;</span>
+          <h1>Comfortable Short-Lets for Business &amp; Leisure Stays</h1>
+          <p>Thoughtfully furnished serviced homes in Crewe, Stoke-on-Trent, Newcastle upon Tyne, and select
+            international locations—tailored for contractors, relocating families, and corporate travellers.</p>
+          <div class="hero-cta">
+            <a href="properties.html" class="btn btn-primary btn-large">
+              Explore Our Properties
+            </a>
+            <a href="contact.html" class="btn btn-secondary btn-large">
+              Corporate &amp; Direct Rates
+            </a>
+          </div>
+
+          <div class="hero-trust-bar">
+            <span class="hero-trust-item"><strong>&#10003;</strong> Verified Airbnb &amp; Booking.com Host</span>
+            <span class="hero-trust-item"><strong>&#10003;</strong> Contractor &amp; Long-Stay Discounts</span>
+            <span class="hero-trust-item"><strong>&#10003;</strong> Fast Wi-Fi &amp; Free Parking</span>
+            <span class="hero-trust-item"><strong>&#10003;</strong> 24/7 Self Check-In</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </div>
+    </section>
+
+    <!-- KEY BENEFITS SECTION -->
+    <section class="benefits">
       <div class="container">
-        <span class="hero-eyebrow">&#10022; Premium Short-Lets &#10022;</span>
-        <h1>Comfortable Short-Lets for Business &amp; Leisure Stays</h1>
-        <p>Premium serviced accommodation with modern amenities, perfect for business travelers, corporate stays, and
-          leisure guests seeking comfort and convenience.</p>
-        <div class="hero-cta">
-          <a href="https://www.airbnb.co.uk" target="_blank" rel="noopener noreferrer"
-            class="btn btn-primary btn-large">
-            Book on Airbnb
-          </a>
-          <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer"
-            class="btn btn-secondary btn-large">
-            Book on Booking.com
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="hero-scroll-hint">
-      <span>Scroll</span>
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="6 9 12 15 18 9"></polyline>
-      </svg>
-    </div>
-  </section>
-
-  <!-- KEY BENEFITS SECTION -->
-  <section class="benefits">
-    <div class="container">
-      <div class="section-header">
-        <h2>Why Choose Jumcent Properties?</h2>
-        <p>We provide exceptional serviced accommodation designed for your comfort and convenience</p>
-      </div>
-
-      <div class="benefits-grid">
-        <div class="benefit-card reveal reveal-slide-up stagger-1">
-          <div class="benefit-icon">🏠</div>
-          <h3 class="benefit-title">Fully Furnished</h3>
-          <p class="benefit-description">All properties come fully furnished with modern, high-quality furniture and
-            essential amenities for a comfortable stay.</p>
+        <div class="section-header">
+          <h2>Why Choose Jumcent Properties?</h2>
+          <p>Dependable, hotel-grade standards combined with the space and privacy of an entire home</p>
         </div>
 
-        <div class="benefit-card reveal reveal-slide-up stagger-2">
-          <div class="benefit-icon">📶</div>
-          <h3 class="benefit-title">Free Wi-Fi</h3>
-          <p class="benefit-description">High-speed internet connectivity in all properties, perfect for remote work and
-            staying connected.</p>
-        </div>
-
-        <div class="benefit-card reveal reveal-slide-up stagger-3">
-          <div class="benefit-icon">📍</div>
-          <h3 class="benefit-title">Great Locations</h3>
-          <p class="benefit-description">Strategically located properties with excellent transport links and close to
-            local amenities.</p>
-        </div>
-
-        <div class="benefit-card reveal reveal-slide-up stagger-1">
-          <div class="benefit-icon">🔑</div>
-          <h3 class="benefit-title">Self Check-In</h3>
-          <p class="benefit-description">Convenient self check-in process for maximum flexibility and hassle-free
-            arrival at any time.</p>
-        </div>
-
-        <div class="benefit-card reveal reveal-slide-up stagger-2">
-          <div class="benefit-icon">📅</div>
-          <h3 class="benefit-title">Flexible Stays</h3>
-          <p class="benefit-description">Ideal for both short and long-term stays, from a few days to several months.
-          </p>
-        </div>
-
-        <div class="benefit-card reveal reveal-slide-up stagger-3">
-          <div class="benefit-icon">⭐</div>
-          <h3 class="benefit-title">Quality Assured</h3>
-          <p class="benefit-description">Professionally managed properties maintained to the highest standards for your
-            peace of mind.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FEATURED PROPERTIES SECTION -->
-  <section class="featured-properties">
-    <div class="container">
-      <div class="section-header">
-        <h2>Featured Properties</h2>
-        <p>Discover our handpicked selection of premium serviced apartments</p>
-      </div>
-
-      <div class="grid grid-3">
-        <!-- Property Card 1 (Sky-Glover House) - FEATURED -->
-        <div class="property-card reveal reveal-slide-up stagger-1">
-          <div class="property-image-wrapper img-zoom">
-            <img src="images/sky-glover/Sitting room.jpeg" alt="Sky-Glover House"
-              class="property-image">
-            <span class="property-badge">New Listing</span>
+        <div class="benefits-grid">
+          <div class="benefit-card reveal stagger-1">
+            <div class="benefit-icon" aria-hidden="true">🏠</div>
+            <h3 class="benefit-title">Fully Furnished Homes</h3>
+            <p class="benefit-description">Spacious bedrooms, full kitchens, laundry appliances, and inviting living
+              areas ready from the moment you arrive.</p>
           </div>
-          <div class="property-info">
-            <h3 class="property-title">Sky-Glover House</h3>
-            <div class="property-location">
-              <span>📍</span>
-              <span>Crewe, Cheshire East, United Kingdom</span>
+
+          <div class="benefit-card reveal stagger-2">
+            <div class="benefit-icon" aria-hidden="true">📶</div>
+            <h3 class="benefit-title">High-Speed Wi-Fi</h3>
+            <p class="benefit-description">Reliable broadband and dedicated workspace setups suited for remote work,
+              video calls, and streaming.</p>
+          </div>
+
+          <div class="benefit-card reveal stagger-3">
+            <div class="benefit-icon" aria-hidden="true">📍</div>
+            <h3 class="benefit-title">Strategic Locations</h3>
+            <p class="benefit-description">Convenient access to rail hubs, motorways (M6, A500, A1), business parks,
+              hospitals, and local amenities.</p>
+          </div>
+
+          <div class="benefit-card reveal stagger-1">
+            <div class="benefit-icon" aria-hidden="true">🔑</div>
+            <h3 class="benefit-title">Seamless Self Check-In</h3>
+            <p class="benefit-description">Secure lockbox and keypad entry so you can check in smoothly on your own
+              schedule, even after late travel.</p>
+          </div>
+
+          <div class="benefit-card reveal stagger-2">
+            <div class="benefit-icon" aria-hidden="true">📅</div>
+            <h3 class="benefit-title">Flexible Stay Lengths</h3>
+            <p class="benefit-description">Book from a few nights up to multi-month contractor assignments or home
+              relocation stays.</p>
+          </div>
+
+          <div class="benefit-card reveal stagger-3">
+            <div class="benefit-icon" aria-hidden="true">⭐</div>
+            <h3 class="benefit-title">Professionally Cleaned</h3>
+            <p class="benefit-description">Fresh hotel-quality bed linen, towels, and thorough housekeeping before
+              every arrival.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED UK PROPERTIES SECTION -->
+    <section class="featured-properties">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured UK Properties</h2>
+          <p>Explore our top contractor- and family-friendly homes across England—or view our full UK &amp;
+            international portfolio</p>
+        </div>
+
+        <div class="grid grid-3">
+          <!-- Property Card 1: Sky-Glover House -->
+          <article class="property-card reveal stagger-1">
+            <div class="property-image-wrapper">
+              <a href="property-sky-glover.html" tabindex="-1" aria-hidden="true">
+                <img src="images/sky-glover/sitting-room.jpg"
+                  alt="Cosy sitting room at Sky-Glover House in Crewe" class="property-image" width="1200" height="799"
+                  loading="lazy" decoding="async">
+              </a>
+              <span class="property-region-flag">🇬🇧 UK</span>
+              <span class="property-badge">New Listing</span>
             </div>
-            <p class="property-description">Charming terraced house in Crewe, managed by Sigma Stays. Perfect for families, contractors, and business stays. Free parking & Wi-Fi.</p>
-            <div class="property-amenities">
-              <span class="amenity-tag">🛏️ 2 Bedrooms</span>
-              <span class="amenity-tag">🚿 1 Bathroom</span>
-              <span class="amenity-tag">🅿️ Free Parking</span>
-              <span class="amenity-tag">📶 Fast Wi-Fi</span>
+            <div class="property-info">
+              <h3 class="property-title"><a href="property-sky-glover.html">Sky-Glover House</a></h3>
+              <div class="property-location">
+                <span aria-hidden="true">📍</span>
+                <span>Crewe, Cheshire East, UK</span>
+              </div>
+              <p class="property-description">Charming 2-bedroom terraced home sleeping up to 5 guests near Crewe
+                Station and the M6 corridor. Ideal for contractors and families.</p>
+              <div class="property-amenities">
+                <span class="amenity-tag"><span aria-hidden="true">🛏️</span> 2 Bedrooms</span>
+                <span class="amenity-tag"><span aria-hidden="true">👥</span> Sleeps 5</span>
+                <span class="amenity-tag"><span aria-hidden="true">🅿️</span> Free Parking</span>
+                <span class="amenity-tag"><span aria-hidden="true">📶</span> Fast Wi-Fi</span>
+              </div>
+              <a href="property-sky-glover.html" class="btn btn-outline btn-block">View Property &amp; Book</a>
             </div>
-            <a href="property-sky-glover.html" class="btn btn-outline">View Details</a>
-          </div>
-        </div>
+          </article>
 
-        <!-- Property Card 2 (Campbell Place) -->
-        <div class="property-card reveal reveal-slide-up stagger-2">
-          <div class="property-image-wrapper img-zoom">
-            <img src="images/campbell/019df5a3-13c0-411c-a440-b53ad5f66837.jpeg.avif" alt="Campbell Place"
-              class="property-image">
-            <span class="property-badge">Stoke Stay</span>
-          </div>
-          <div class="property-info">
-            <h3 class="property-title">Campbell Place</h3>
-            <div class="property-location">
-              <span>📍</span>
-              <span>Stoke-on-Trent, United Kingdom</span>
+          <!-- Property Card 2: Campbell Place -->
+          <article class="property-card reveal stagger-2">
+            <div class="property-image-wrapper">
+              <a href="property-campbell.html" tabindex="-1" aria-hidden="true">
+                <img src="images/campbell/019df5a3-13c0-411c-a440-b53ad5f66837.jpeg.avif"
+                  alt="Spacious living room at Campbell Place in Stoke-on-Trent" class="property-image" width="1200"
+                  height="799" loading="lazy" decoding="async">
+              </a>
+              <span class="property-region-flag">🇬🇧 UK</span>
+              <span class="property-badge">Stoke Stay</span>
             </div>
-            <p class="property-description">Spacious 4-bedroom contractor-friendly home sleeping up to 6 guests.
-              Features fast Wi-Fi, garden, and parking.</p>
-            <div class="property-amenities">
-              <span class="amenity-tag">🛏️ 4 Bedrooms</span>
-              <span class="amenity-tag">🚿 1 Bathroom</span>
-              <span class="amenity-tag">🅿️ Free Parking</span>
-              <span class="amenity-tag">📶 Fast Wi-Fi</span>
+            <div class="property-info">
+              <h3 class="property-title"><a href="property-campbell.html">Campbell Place</a></h3>
+              <div class="property-location">
+                <span aria-hidden="true">📍</span>
+                <span>Stoke-on-Trent, UK</span>
+              </div>
+              <p class="property-description">Spacious 4-bedroom contractor-friendly house sleeping up to 6 guests
+                across 5 beds, complete with private garden, washer/dryer, and easy A500/M6 access.</p>
+              <div class="property-amenities">
+                <span class="amenity-tag"><span aria-hidden="true">🛏️</span> 4 Bedrooms</span>
+                <span class="amenity-tag"><span aria-hidden="true">👥</span> Sleeps 6</span>
+                <span class="amenity-tag"><span aria-hidden="true">🅿️</span> Free Parking</span>
+                <span class="amenity-tag"><span aria-hidden="true">🌳</span> Garden</span>
+              </div>
+              <a href="property-campbell.html" class="btn btn-outline btn-block">View Property &amp; Book</a>
             </div>
-            <a href="property-campbell.html" class="btn btn-outline">View Details</a>
-          </div>
-        </div>
+          </article>
 
-        <!-- Property Card 3 (Fenham Place) -->
-        <div class="property-card reveal reveal-slide-up stagger-3">
-          <div class="property-image-wrapper img-zoom">
-            <img src="images/newcastle/4438adfa-23d8-420b-b277-ab9f064dfe5d.JPG" alt="Fenham Place" class="property-image">
-            <span class="property-badge">Newcastle Stay</span>
-          </div>
-          <div class="property-info">
-            <h3 class="property-title">Fenham Place</h3>
-            <div class="property-location">
-              <span>📍</span>
-              <span>Newcastle upon Tyne, United Kingdom</span>
+          <!-- Property Card 3: Fenham Place -->
+          <article class="property-card reveal stagger-3">
+            <div class="property-image-wrapper">
+              <a href="property-fenham.html" tabindex="-1" aria-hidden="true">
+                <img src="images/newcastle/4438adfa-23d8-420b-b277-ab9f064dfe5d.JPG"
+                  alt="Bright living and dining space at Fenham Place in Newcastle upon Tyne" class="property-image"
+                  width="900" height="1600" loading="lazy" decoding="async">
+              </a>
+              <span class="property-region-flag">🇬🇧 UK</span>
+              <span class="property-badge">Newcastle Stay</span>
             </div>
-            <p class="property-description">Peaceful and centrally-located 3-bedroom home in the heart of Newcastle, perfect for families and business travelers.</p>
-            <div class="property-amenities">
-              <span class="amenity-tag">🛏️ 3 Bedrooms</span>
-              <span class="amenity-tag">🚿 1 Bathroom</span>
-              <span class="amenity-tag">🅿️ Free Parking</span>
-              <span class="amenity-tag">📶 Fast Wi-Fi</span>
+            <div class="property-info">
+              <h3 class="property-title"><a href="property-fenham.html">Fenham Place</a></h3>
+              <div class="property-location">
+                <span aria-hidden="true">📍</span>
+                <span>Newcastle upon Tyne, UK</span>
+              </div>
+              <p class="property-description">Peaceful, well-connected 3-bedroom home sleeping up to 5 guests in
+                Newcastle upon Tyne, with free parking and wired/wireless high-speed internet.</p>
+              <div class="property-amenities">
+                <span class="amenity-tag"><span aria-hidden="true">🛏️</span> 3 Bedrooms</span>
+                <span class="amenity-tag"><span aria-hidden="true">👥</span> Sleeps 5</span>
+                <span class="amenity-tag"><span aria-hidden="true">🅿️</span> Free Parking</span>
+                <span class="amenity-tag"><span aria-hidden="true">📶</span> Fast Wi-Fi</span>
+              </div>
+              <a href="property-fenham.html" class="btn btn-outline btn-block">View Property &amp; Book</a>
             </div>
-            <a href="property-fenham.html" class="btn btn-outline">View Details</a>
+          </article>
+        </div>
+
+        <div class="text-center mt-xl reveal">
+          <a href="properties.html" class="btn btn-primary btn-large">View All UK &amp; International Properties</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GUEST REVIEWS SECTION -->
+    <section class="reviews">
+      <div class="container">
+        <div class="section-header">
+          <h2>What Our Guests Say</h2>
+          <p>Feedback from business travellers, contractors, and families who have stayed with us</p>
+        </div>
+
+        <div class="grid grid-3">
+          <div class="review-card reveal stagger-1">
+            <div class="review-rating" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="review-text">"Absolutely brilliant accommodation! The house was spotless, modern, and had
+              everything our team needed. Great parking and super convenient for our business trip."</p>
+            <p class="review-author">Sarah M.</p>
+            <p class="review-source">Verified Guest via Airbnb</p>
+          </div>
+
+          <div class="review-card reveal stagger-2">
+            <div class="review-rating" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="review-text">"We stayed for a month during our relocation and it genuinely felt like home. Self
+              check-in was effortless and the hosts were always responsive. Would happily book again."</p>
+            <p class="review-author">James T.</p>
+            <p class="review-source">Verified Guest via Booking.com</p>
+          </div>
+
+          <div class="review-card reveal stagger-3">
+            <div class="review-rating" aria-label="5 out of 5 stars">
+              <span aria-hidden="true">★★★★★</span>
+            </div>
+            <p class="review-text">"Excellent value for money. Clean, comfortable beds, a proper kitchen, and fast
+              Wi-Fi throughout. Made our family stay in the UK completely stress-free."</p>
+            <p class="review-author">Emma L.</p>
+            <p class="review-source">Verified Guest via Airbnb</p>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="text-center mt-xl reveal reveal-fade stagger-3">
-        <a href="properties.html" class="btn btn-primary btn-large">View All Properties</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- GUEST REVIEWS SECTION -->
-  <section class="reviews">
-    <div class="container">
-      <div class="section-header">
-        <h2>What Our Guests Say</h2>
-        <p>Real reviews from satisfied guests who stayed with us</p>
-      </div>
-
-      <div class="grid grid-3">
-        <div class="review-card reveal reveal-slide-up stagger-1">
-          <div class="review-rating">
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
+    <!-- ABOUT INTRO SECTION -->
+    <section class="about-intro">
+      <div class="container">
+        <div class="grid grid-2 items-center">
+          <div class="reveal">
+            <h2>Hosted With Care &amp; Consistency</h2>
+            <p>
+              At Jumcent Properties, we provide thoughtfully equipped short-let homes across key UK regional hubs—as
+              well as select international serviced apartments—for guests who value comfort, reliability, and clear
+              communication.
+            </p>
+            <p>
+              Booking for a contractor crew, corporate project, insurance stay, or family visit? Contact our team
+              directly for tailored multi-week rates and flexible invoicing.
+            </p>
+            <div class="mt-md" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="about.html" class="btn btn-primary">About Jumcent Properties</a>
+              <a href="contact.html" class="btn btn-outline">Request Corporate Quote</a>
+            </div>
           </div>
-          <p class="review-text">"Absolutely brilliant accommodation! The apartment was spotless, modern, and had
-            everything we needed. Perfect location for our business trip. Highly recommended!"</p>
-          <p class="review-author">Sarah M.</p>
-          <p class="review-source">via Airbnb</p>
-        </div>
-
-        <div class="review-card reveal reveal-slide-up stagger-2">
-          <div class="review-rating">
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-          </div>
-          <p class="review-text">"We stayed for a month during our relocation and it felt like home. The self check-in
-            was seamless and the property management team was always responsive. Will definitely book again!"</p>
-          <p class="review-author">James T.</p>
-          <p class="review-source">via Booking.com</p>
-        </div>
-
-        <div class="review-card reveal reveal-slide-up stagger-3">
-          <div class="review-rating">
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-            <span>⭐</span>
-          </div>
-          <p class="review-text">"Excellent value for money. The apartment exceeded our expectations - clean,
-            comfortable, and in a great location. Made our family holiday to the UK so much easier!"</p>
-          <p class="review-author">Emma L.</p>
-          <p class="review-source">via Airbnb</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT INTRO SECTION -->
-  <section class="about-intro">
-    <div class="container">
-      <div class="section-header">
-        <h2>About Jumcent Properties</h2>
-      </div>
-
-      <div class="grid grid-2" style="align-items: center;">
-        <div>
-          <p style="font-size: 1.125rem; line-height: 1.75; color: var(--color-text-secondary);">
-            At Jumcent Properties, we specialize in providing premium short-let serviced accommodation for business and
-            leisure travelers across the UK. Our commitment to quality, comfort, and exceptional guest experience sets
-            us apart.
-          </p>
-          <p style="font-size: 1.125rem; line-height: 1.75; color: var(--color-text-secondary); margin-top: 1rem;">
-            Each property is carefully selected and professionally managed to ensure the highest standards of comfort
-            and convenience. Whether you're here for business, relocation, or leisure, we provide a home away from home.
-          </p>
-          <div style="margin-top: 2rem;">
-            <a href="about.html" class="btn btn-primary">Learn More About Us</a>
+          <div class="reveal">
+            <img src="images/campbell/campbell-og.jpg"
+              alt="Bright, modern furnished living room inside Campbell Place" class="rounded-media" width="1200"
+              height="799" loading="lazy" decoding="async">
           </div>
         </div>
-        <div>
-          <img src="images/hero-apartment.jpg" alt="About Jumcent Properties"
-            style="border-radius: 12px; box-shadow: var(--shadow-xl);">
-        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
   </main>
 
@@ -365,53 +375,52 @@
       <div class="footer-content">
         <div class="footer-section">
           <h3>Jumcent Properties</h3>
-          <p>Premium serviced accommodation for business and leisure stays in the UK.</p>
-          <div class="footer-social">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-link"
-              aria-label="Facebook">
-              <span>📘</span>
-            </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-link"
-              aria-label="Instagram">
-              <span>📷</span>
-            </a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-link"
-              aria-label="Twitter">
-              <span>🐦</span>
-            </a>
-          </div>
+          <p>Premium short-let and serviced accommodation across the United Kingdom and select international
+            destinations.</p>
+          <p class="mt-sm">
+            <a href="https://wa.me/447751573029" target="_blank" rel="noopener noreferrer">💬 Chat with us on
+              WhatsApp</a>
+          </p>
         </div>
 
         <div class="footer-section">
           <h3>Quick Links</h3>
-          <a href="index.html">Home</a>
-          <a href="properties.html">Properties</a>
+          <a href="/">Home</a>
+          <a href="properties.html">All Properties</a>
+          <a href="properties.html?region=uk">UK Properties</a>
+          <a href="properties.html?region=international">International Stays</a>
           <a href="about.html">About Us</a>
-          <a href="contact.html">Contact</a>
+          <a href="contact.html">Contact Us</a>
         </div>
 
         <div class="footer-section">
-          <h3>Book With Us</h3>
-          <a href="https://www.airbnb.co.uk" target="_blank" rel="noopener noreferrer">Airbnb Listings</a>
-          <a href="https://www.booking.com" target="_blank" rel="noopener noreferrer">Booking.com Listings</a>
+          <h3>Our Portfolio</h3>
+          <a href="property-sky-glover.html">Sky-Glover House (Crewe)</a>
+          <a href="property-campbell.html">Campbell Place (Stoke)</a>
+          <a href="property-fenham.html">Fenham Place (Newcastle)</a>
+          <a href="property-skyhouse.html">SkyHouse Apartment (Akure)</a>
         </div>
 
         <div class="footer-section">
           <h3>Contact Us</h3>
-          <p>📧 info@skykruze.com</p>
-          <p>📱 +44 7751 573 029</p>
+          <a href="mailto:info@skykruze.com">📧 info@skykruze.com</a>
+          <a href="tel:+447751573029">📱 +44 7751 573 029</a>
           <p>📍 London, United Kingdom</p>
         </div>
       </div>
 
       <div class="footer-bottom">
         <p>&copy; 2026 Jumcent Properties. All rights reserved.</p>
+        <div class="footer-legal-links">
+          <a href="privacy.html">Privacy &amp; Cookie Policy</a>
+          <a href="terms.html">Terms of Use</a>
+          <a href="#cookie-preferences" data-open-cookies>Cookie Preferences</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- JavaScript -->
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>

@@ -1,0 +1,15 @@
+# macOS metadata
+.DS_Store
+**/.DS_Store
+
+# Editor / local files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Local Python / Node scratch
+__pycache__/
+*.pyc
+node_modules/

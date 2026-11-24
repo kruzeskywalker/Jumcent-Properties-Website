@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /property-template.html
 
-Sitemap: https://www.jumcentproperties.com/sitemap.xml
+Sitemap: https://jumcentproperties.co.uk/sitemap.xml
